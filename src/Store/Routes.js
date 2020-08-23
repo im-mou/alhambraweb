@@ -4,23 +4,24 @@ const Routes = {
         title: 'Inicio',
         subtitle: 'Sub Titulo',
     },
-    SERVICIOS: {
-        link: '/sevicios',
-        title: 'Sevicios',
-        subtitle: 'Sub Titulo',
-    },
+
     EMPRESA: {
-        link: '/empresa',
+        link: '#empresa',
         title: 'Empresa',
         subtitle: 'Sub Titulo',
     },
+    SERVICIOS: {
+        link: '#sevicios',
+        title: 'Sevicios',
+        subtitle: 'Sub Titulo',
+    },
     CLIENTES: {
-        link: '/clientes',
+        link: '#clientes',
         title: 'Clientes',
         subtitle: 'Sub Titulo',
     },
     CONTACTO: {
-        link: '/contacto',
+        link: '#contacto',
         title: 'Contacto',
         subtitle: 'Sub Titulo',
     },

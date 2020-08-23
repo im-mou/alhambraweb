@@ -61,11 +61,14 @@ function NavBar() {
                 </Col>
                 <Col xs={18} md={8}>
                     <Title className={styles.logo} level={4}>
-                        {context.title}<span style={{color:'#006b26aa', marginLeft:2}}>.</span>
+                        {context.title}
+                        <span style={{ color: '#006b26aa', marginLeft: 2 }}>
+                            .
+                        </span>
                     </Title>
                 </Col>
                 <Col xs={0} md={16}>
-                    <Row gutter={[48, 0]} justify="end">
+                    <Row gutter={{ sm: 24, md: 40, lg: 50 }} justify="end">
                         {routesEntries.map(([name, data], k) => (
                             <Col
                                 key={k}

@@ -1,4 +1,5 @@
 import React from 'react';
+import RoutesList from '../Store/Routes';
 import AppStore from '../Store/AppStore';
 import Wrapper from '../Templates/Wrapper';
 import SectionBlock from '../Templates/SectionBlock';
@@ -21,11 +22,38 @@ import {
 const { Title, Text, Paragraph } = Typography;
 const { Meta } = Card;
 
+const clientes = [
+    {
+        empresa: 'Emte',
+        description: 'Emte Sistema',
+    },
+    {
+        empresa: 'Elecnor',
+        description: 'Empresa Eléctrica',
+    },
+    {
+        empresa: 'Girona',
+        description: 'Empresa en Gironq',
+    },
+    {
+        empresa: 'Fira Barcelona',
+        description: 'Feria de Barcelona',
+    },
+    {
+        empresa: 'Instalfer',
+        description: 'Instalación de ferias',
+    },
+    {
+        empresa: 'Terraco',
+        description: 'Empresa Catalana',
+    },
+];
+
 const MyCard = (props) => (
     // title, icon, description, children
     <Col xs={24} md={12}>
         <Card style={{ minHeight: 300 }}>
-            <Col>{props.icon}</Col>
+            <Col>{props.icon || null}</Col>
             <Col>
                 <Meta
                     title={
@@ -41,10 +69,18 @@ const MyCard = (props) => (
     </Col>
 );
 
+const MySmallCard = ({ empresa, description }) => (
+    <Col xs={6} sm={8}>
+        <Card className={styles.smallCard}>
+            <Meta title={empresa} description={description} />
+        </Card>
+    </Col>
+);
+
 const HomePage = (props) => {
     return (
         <div className={styles.homepage}>
-            <Carousel />
+            <Carousel id={RoutesList.HOMEPAGE.link} />
 
             <Wrapper className={styles.accentSection}>
                 <Row align="center" gutter={24}>
@@ -65,8 +101,11 @@ const HomePage = (props) => {
                     />
                 </Row>
             </Wrapper>
-            
-            <Wrapper className={styles.secondarySection}>
+
+            <Wrapper
+                id={RoutesList.EMPRESA.link}
+                className={styles.secondarySection}
+            >
                 <Title level={2}>Sobre Nosotros</Title>
                 <Paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -92,9 +131,11 @@ const HomePage = (props) => {
                     </Button>
                 </Row>
             </Wrapper>
-            
+
             <Wrapper className={styles.tercearySection}>
-                <Title level={2}>Nuestros Servicios</Title>
+                <Title id={RoutesList.SERVICIOS.link} level={2}>
+                    Nuestros Servicios
+                </Title>
                 <Row gutter={[24, 24]}>
                     <MyCard
                         title="Instalaciones Eléctricas"
@@ -178,7 +219,18 @@ const HomePage = (props) => {
                     </MyCard>
                 </Row>
             </Wrapper>
-        
+
+            <Wrapper className={styles.secondarySection}>
+                <Title id={RoutesList.CLIENTES.link} level={2}>
+                    Nuestros Clientes
+                </Title>
+
+                <Row gutter={[24, 24]}>
+                    {clientes.map((empresa, k) => (
+                        <MySmallCard key={k} {...empresa} />
+                    ))}
+                </Row>
+            </Wrapper>
         </div>
     );
 };
