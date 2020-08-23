@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MyHeader from './Components/Header';
+import AppContext from './Context/AppContext';
+import AppStore from './Store/AppStore';
+
+import { Layout, Row, Col } from 'antd';
+const { Footer, Content } = Layout;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <AppContext.Provider value={AppStore}>
+            <Layout>
+                <Content>
+                    <MyHeader />
+                </Content>
+                <Row justify="center">
+                    <Col
+                        xs={24}
+                        lg={20}
+                        xl={16}
+                        style={{ backgroundColor: 'red' }}
+                    >
+                        <Content>Content</Content>
+                    </Col>
+                </Row>
+                <Footer>Footer</Footer>
+            </Layout>
+        </AppContext.Provider>
+    );
 }
 
 export default App;
