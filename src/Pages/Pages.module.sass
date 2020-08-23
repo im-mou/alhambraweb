@@ -1,0 +1,44 @@
+h2
+    position: relative
+    margin-bottom: 60px !important
+    
+    &::before
+        position: absolute
+        content: ''
+        bottom: -15px
+        height: 5px
+        width: 30px
+        background-color: rgba(4, 131, 0, 0.699)
+
+.accentSection
+    background-color: rgba(#000, .9)
+    color: white
+    margin: 20px
+    padding: 60px 20px !important
+
+.secondarySection
+    background-color: rgba(#000, .05)
+    padding: 60px 20px !important
+
+    h2
+        text-align: center
+        &::before
+            bottom: -25px
+            background-color: rgba(4, 131, 0, 0.2)
+            left: calc( 50% - 20px )
+            width: 40px
+
+.tercearySection
+    background-color: rgba(#000, .02)
+    padding: 60px 20px !important
+    border-bottom: 4px solid rgba(#000, .05)
+
+.cardTitle
+    font-size: 16px
+    font-weight: bold
+
+.cardIcon
+    font-size: 40px
+
+.homepage
+    position: relative

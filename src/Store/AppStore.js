@@ -6,5 +6,12 @@ const AppStore = {
     horario: '08:00 - 18:00',
 };
 
+export const Banners = [
+    'banner1.jpg',
+    'banner2.jpg',
+    'banner3.jpg',
+    'banner4.jpg',
+];
+
 // Exports
 export default AppStore;
