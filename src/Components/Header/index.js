@@ -34,6 +34,11 @@ function NavBar() {
 
     let location = useLocation();
 
+    const goToSection = (e, id) => {
+        if(id !== null && id.length > 1)
+            document.getElementById(id).scrollIntoView();
+    };
+
     let pageName = routesEntries.filter(
         ([_, { $, link }]) => link === location.pathname
     );
@@ -42,7 +47,7 @@ function NavBar() {
     const menu = (
         <Menu>
             {routesEntries.map(([name, data], k) => (
-                <Menu.Item key={k}>
+                <Menu.Item onClick={(e) => goToSection(e, data.link)} key={k}>
                     <Link to={data.link}>{data.title}</Link>
                 </Menu.Item>
             ))}
@@ -72,6 +77,7 @@ function NavBar() {
                         {routesEntries.map(([name, data], k) => (
                             <Col
                                 key={k}
+                                onClick={(e) => goToSection(e, data.link)}
                                 className={cx(styles.menu, {
                                     [styles.menuactive]:
                                         pageName.title === data.title,

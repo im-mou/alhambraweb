@@ -132,10 +132,11 @@ const HomePage = (props) => {
                 </Row>
             </Wrapper>
 
-            <Wrapper className={styles.tercearySection}>
-                <Title id={RoutesList.SERVICIOS.link} level={2}>
-                    Nuestros Servicios
-                </Title>
+            <Wrapper
+                id={RoutesList.SERVICIOS.link}
+                className={styles.tercearySection}
+            >
+                <Title level={2}>Nuestros Servicios</Title>
                 <Row gutter={[24, 24]}>
                     <MyCard
                         title="Instalaciones Eléctricas"
@@ -220,10 +221,11 @@ const HomePage = (props) => {
                 </Row>
             </Wrapper>
 
-            <Wrapper className={styles.secondarySection}>
-                <Title id={RoutesList.CLIENTES.link} level={2}>
-                    Nuestros Clientes
-                </Title>
+            <Wrapper
+                id={RoutesList.CLIENTES.link}
+                className={styles.secondarySection}
+            >
+                <Title level={2}>Nuestros Clientes</Title>
 
                 <Row gutter={[24, 24]}>
                     {clientes.map((empresa, k) => (
