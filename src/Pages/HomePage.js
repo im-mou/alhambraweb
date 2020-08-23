@@ -82,7 +82,7 @@ const HomePage = (props) => {
         <div className={styles.homepage}>
             <Carousel id={RoutesList.HOMEPAGE.link} />
 
-            <Wrapper className={styles.accentSection}>
+            <Wrapper id={RoutesList.CONTACTO.link} className={styles.accentSection}>
                 <Row align="center" gutter={24}>
                     <SectionBlock
                         preheader="Contáctanos por correo"

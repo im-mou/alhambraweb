@@ -35,8 +35,8 @@ function NavBar() {
     let location = useLocation();
 
     const goToSection = (e, id) => {
-        if(id !== null && id.length > 1)
-            document.getElementById(id).scrollIntoView();
+        let el = document.getElementById(id);
+        if (el) el.scrollIntoView();
     };
 
     let pageName = routesEntries.filter(
