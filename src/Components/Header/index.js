@@ -57,13 +57,13 @@ function NavBar() {
     return (
         <Wrapper className={styles.navbar}>
             <Row justify="space-between" align="middle">
-                {/* <Col xs={1} md={0}>
+                <Col xs={1} md={0}>
                     <Dropdown overlay={menu}>
                         <Button>
                             <MenuOutlined />
                         </Button>
                     </Dropdown>
-                </Col> */}
+                </Col>
                 <Col xs={18} md={8}>
                     <Title className={styles.logo} level={4}>
                         {context.title}
