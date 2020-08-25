@@ -17,7 +17,7 @@ function TopMenu() {
     const context = useContext(AppContext);
     return (
         <Wrapper className={styles.topmenu}>
-            <Row justify="space-between">
+            <Row>
                 <Col xs={12}>
                     <MailFilled /> {context.email}
                 </Col>
@@ -57,13 +57,13 @@ function NavBar() {
     return (
         <Wrapper className={styles.navbar}>
             <Row justify="space-between" align="middle">
-                <Col xs={1} md={0}>
+                {/* <Col xs={1} md={0}>
                     <Dropdown overlay={menu}>
                         <Button>
                             <MenuOutlined />
                         </Button>
                     </Dropdown>
-                </Col>
+                </Col> */}
                 <Col xs={18} md={8}>
                     <Title className={styles.logo} level={4}>
                         {context.title}
@@ -73,7 +73,7 @@ function NavBar() {
                     </Title>
                 </Col>
                 <Col xs={0} md={16}>
-                    <Row gutter={{ sm: 24, md: 40, lg: 50 }} justify="end">
+                    <Row justify="end">
                         {routesEntries.map(([name, data], k) => (
                             <Col
                                 key={k}
@@ -96,7 +96,7 @@ function NavBar() {
 const Header = (props) => {
     return (
         <div className={cx(styles.header, styles.homepage)}>
-            <TopMenu />
+            {/* <TopMenu /> */}
             <NavBar />
         </div>
     );

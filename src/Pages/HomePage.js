@@ -92,7 +92,7 @@ const HomePage = (props) => {
                 <Row justify="center" style={{ padding: '20px 0' }}>
                     <Col xs={22} md={20} lg={16}>
                         {aboutUsText.map((text, i) => (
-                            <Paragraph className={styles.bigtext}>
+                            <Paragraph key={i} className={styles.bigtext}>
                                 {text}
                             </Paragraph>
                         ))}
@@ -112,6 +112,7 @@ const HomePage = (props) => {
                     <Col xs={24} md={12} style={{ marginTop: 40 }}>
                         <List
                             bordered
+                            size="small"
                             style={{ backgroundColor: '#fff' }}
                             header={
                                 <strong>
@@ -248,6 +249,8 @@ const HomePage = (props) => {
                     ))}
                 </Row>
             </Wrapper>
+
+
         </div>
     );
 };

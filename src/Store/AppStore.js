@@ -2,7 +2,7 @@
 const AppStore = {
     title: 'Alhambra Sistemas e Instalaciones',
     email: 'gtz_gtz@yahoo.com',
-    phone: '+34 666 666 666',
+    phone: '+34 678 53 51 11',
     horario: '08:00 - 18:00',
 };
 
@@ -19,11 +19,13 @@ export const Banners = [
 ];
 
 export const dataExperiencia = [
-    'Hospitales',
-    'Hoteles',
-    'Obra pública',
+    'Hotel W (Barcelona)',
+    'Ciutat de justícia (l’Hospitalet deLlobregat)',
+    'Hotel Catalunya (Barcelona)',
+    'Feria de Barcelona (FIRA)',
+    'Esclat Supermercados (Girona)',
     'Oficinas',
-    'Universidadaes',
+    'Universidades',
     'Centros Comerciales',
     'Grandes Comercios',
 ];
