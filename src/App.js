@@ -11,12 +11,12 @@ function App(props) {
             <MyHeader />
             {props.children}
             <Wrapper style={{ backgroundColor: '#222', color: '#fff' }}>
-                <Row style={{ padding: 20 }} justify="space-between">
-                    <Col>
+                <Row style={{ padding: 20 }}>
+                    <Col sm={24} md={12}>
                         Copyright © {new Date().getFullYear()}{' '}
                         {AppStore.title + ' S.L.'}
                     </Col>
-                    <Col>
+                    <Col sm={24} md={12} align="center">
                         <Space size="middle">
                             <span>{AppStore.phone}</span>
                             <span>&bull;</span>

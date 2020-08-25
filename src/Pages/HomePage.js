@@ -1,11 +1,17 @@
 import React from 'react';
 import RoutesList from '../Store/Routes';
-import AppStore from '../Store/AppStore';
+import AppStore, {
+    clientes,
+    precios,
+    dataExperiencia,
+    dataServicios,
+    aboutUsText,
+} from '../Store/AppStore';
 import Wrapper from '../Templates/Wrapper';
 import SectionBlock from '../Templates/SectionBlock';
 import Carousel from '../Components/Carousel';
 import styles from './Pages.module.sass';
-import { Typography, Row, Col, Card, Button } from 'antd';
+import { Typography, Row, Col, Card, Button, List } from 'antd';
 import {
     ClockCircleOutlined,
     MailFilled,
@@ -21,33 +27,6 @@ import {
 
 const { Title, Text, Paragraph } = Typography;
 const { Meta } = Card;
-
-const clientes = [
-    {
-        empresa: 'Emte',
-        description: 'Emte Sistema',
-    },
-    {
-        empresa: 'Elecnor',
-        description: 'Empresa Eléctrica',
-    },
-    {
-        empresa: 'Girona',
-        description: 'Empresa en Gironq',
-    },
-    {
-        empresa: 'Fira Barcelona',
-        description: 'Feria de Barcelona',
-    },
-    {
-        empresa: 'Instalfer',
-        description: 'Instalación de ferias',
-    },
-    {
-        empresa: 'Terraco',
-        description: 'Empresa Catalana',
-    },
-];
 
 const MyCard = (props) => (
     // title, icon, description, children
@@ -69,10 +48,10 @@ const MyCard = (props) => (
     </Col>
 );
 
-const MySmallCard = ({ empresa, description }) => (
-    <Col xs={6} sm={8}>
+const MySmallCard = ({ title, description }) => (
+    <Col xs={24} sm={12} md={8}>
         <Card className={styles.smallCard}>
-            <Meta title={empresa} description={description} />
+            <Meta title={title} description={description} />
         </Card>
     </Col>
 );
@@ -82,7 +61,10 @@ const HomePage = (props) => {
         <div className={styles.homepage}>
             <Carousel id={RoutesList.HOMEPAGE.link} />
 
-            <Wrapper id={RoutesList.CONTACTO.link} className={styles.accentSection}>
+            <Wrapper
+                id={RoutesList.CONTACTO.link}
+                className={styles.accentSection}
+            >
                 <Row align="center" gutter={24}>
                     <SectionBlock
                         preheader="Contáctanos por correo"
@@ -107,28 +89,61 @@ const HomePage = (props) => {
                 className={styles.secondarySection}
             >
                 <Title level={2}>Sobre Nosotros</Title>
-                <Paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus a purus cursus, congue lacus a, imperdiet felis.
-                    Duis viverra ornare sem. Praesent dapibus dolor id nisi
-                    porta aliquet.
-                </Paragraph>
-                <Paragraph>
-                    Sed mi massa, efficitur a mattis vel, dictum sed erat. Cras
-                    tempus ipsum eu velit ultricies feugiat a ac lectus. Quisque
-                    bibendum tempor mattis. Mauris dolor mi, rutrum vitae auctor
-                    sit amet, lacinia vitae justo. Mauris sed sapien sit amet mi
-                    pulvinar tempor. Suspendisse pharetra lorem magna.
-                </Paragraph>
+                <Row justify="center" style={{ padding: '20px 0' }}>
+                    <Col xs={22} md={20} lg={16}>
+                        {aboutUsText.map((text, i) => (
+                            <Paragraph className={styles.bigtext}>
+                                {text}
+                            </Paragraph>
+                        ))}
+                    </Col>
+                </Row>
+                <Row gutter={24}>
+                    <Col xs={24} md={12} style={{ marginTop: 40 }}>
+                        <List
+                            bordered
+                            size="large"
+                            style={{ backgroundColor: '#fff' }}
+                            header={<strong>Nuestros Servicios:</strong>}
+                            dataSource={dataServicios}
+                            renderItem={(item) => <List.Item>{item}</List.Item>}
+                        />
+                    </Col>
+                    <Col xs={24} md={12} style={{ marginTop: 40 }}>
+                        <List
+                            bordered
+                            style={{ backgroundColor: '#fff' }}
+                            header={
+                                <strong>
+                                    Nuestra experiencia está basada en:
+                                </strong>
+                            }
+                            dataSource={dataExperiencia}
+                            renderItem={(item) => <List.Item>{item}</List.Item>}
+                        />
+                    </Col>
+                </Row>
                 <Row align="center" style={{ marginTop: 60 }}>
                     <Button
                         danger
                         type="primary"
                         icon={<FilePdfOutlined />}
                         size="large"
+                        target="_blank"
+                        href="/ASI_CV.pdf"
                     >
                         Descarga nuestro CV
                     </Button>
+                </Row>
+            </Wrapper>
+
+            <Wrapper className={styles.secondarySection}>
+                <Title level={2}>Precios de administración</Title>
+
+                <Row gutter={[24, 24]}>
+                    {precios.map((el, k) => (
+                        <MySmallCard key={k} {...el} />
+                    ))}
                 </Row>
             </Wrapper>
 

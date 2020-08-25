@@ -22,7 +22,7 @@ function TopMenu() {
                     <MailFilled /> {context.email}
                 </Col>
                 <Col align="right" xs={12}>
-                    <PhoneFilled /> Llámanos: {context.phone}
+                    <PhoneFilled /> {context.phone}
                 </Col>
             </Row>
         </Wrapper>
